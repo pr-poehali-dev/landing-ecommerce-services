@@ -82,6 +82,53 @@ const Index = () => {
     { name: "Почта России" }
   ];
 
+  const pricingPlans = [
+    {
+      name: "Стартовый",
+      price: "от 150 000 ₽",
+      description: "Идеально для малого бизнеса",
+      features: [
+        "Корпоративный сайт до 10 страниц",
+        "Адаптивный дизайн",
+        "Базовая SEO-оптимизация",
+        "Форма обратной связи",
+        "1 месяц технической поддержки",
+        "Установка на хостинг"
+      ],
+      popular: false
+    },
+    {
+      name: "Бизнес",
+      price: "от 300 000 ₽",
+      description: "Для растущих компаний",
+      features: [
+        "Интернет-магазин до 500 товаров",
+        "Система управления каталогом",
+        "Интеграция с платежными системами",
+        "Личный кабинет пользователя",
+        "Продвинутая SEO-оптимизация",
+        "3 месяца технической поддержки",
+        "Обучение администратора"
+      ],
+      popular: true
+    },
+    {
+      name: "Энтерпрайз",
+      price: "от 800 000 ₽",
+      description: "Для крупного бизнеса",
+      features: [
+        "Маркетплейс с неограниченным функционалом",
+        "Мультивендорная система",
+        "Интеграция с 1С, CRM, ERP",
+        "Сложная логистика и аналитика",
+        "Высоконагруженная архитектура",
+        "12 месяцев поддержки 24/7",
+        "Выделенный менеджер проекта"
+      ],
+      popular: false
+    }
+  ];
+
   const faqs = [
     {
       question: "Сколько времени занимает разработка сайта?",
@@ -256,6 +303,56 @@ const Index = () => {
                   <span className="text-lg font-semibold text-gray-700">{partner.name}</span>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Тарифы и цены</h2>
+            <p className="text-gray-600 text-lg">Выберите оптимальный план для вашего бизнеса</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {pricingPlans.map((plan, index) => (
+              <Card 
+                key={index}
+                className={`relative hover:shadow-2xl transition-all duration-300 animate-scale-in ${
+                  plan.popular ? 'border-2 border-primary shadow-xl scale-105' : 'border-gray-200'
+                }`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">
+                      Популярный
+                    </span>
+                  </div>
+                )}
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4">{plan.description}</p>
+                  <div className="mb-6">
+                    <span className="text-4xl font-bold text-primary">{plan.price}</span>
+                  </div>
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <Icon name="Check" className="text-primary flex-shrink-0 mt-0.5" size={20} />
+                        <span className="text-sm text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button 
+                    className="w-full" 
+                    variant={plan.popular ? 'default' : 'outline'}
+                    size="lg"
+                  >
+                    {plan.popular ? 'Начать проект' : 'Узнать подробнее'}
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
