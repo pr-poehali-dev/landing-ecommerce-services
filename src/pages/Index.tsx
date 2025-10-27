@@ -62,24 +62,49 @@ const Index = () => {
 
   const advantages = [
     {
-      icon: "Zap",
-      title: "Быстрая разработка",
-      description: "Сдаем проекты в срок благодаря отлаженным процессам и опытной команде"
+      icon: "Settings",
+      title: "Гибкая настройка CMS",
+      description: "Интуитивная панель управления для редактирования контента без программиста"
+    },
+    {
+      icon: "Rocket",
+      title: "Быстрый запуск",
+      description: "Готовая платформа позволяет запустить проект в 3 раза быстрее"
     },
     {
       icon: "Shield",
-      title: "Надежность",
-      description: "Используем проверенные технологии и современные стандарты безопасности"
+      title: "Безопасность",
+      description: "Регулярные обновления системы безопасности и защита от взломов"
     },
     {
-      icon: "LineChart",
-      title: "Масштабируемость",
-      description: "Создаем решения, которые растут вместе с вашим бизнесом"
+      icon: "Layout",
+      title: "Готовые шаблоны",
+      description: "Библиотека профессиональных дизайнов под любую нишу бизнеса"
     },
     {
-      icon: "Users",
-      title: "Поддержка 24/7",
-      description: "Всегда на связи для решения любых технических вопросов"
+      icon: "Smartphone",
+      title: "Адаптивность",
+      description: "Автоматическая оптимизация под все устройства и размеры экранов"
+    },
+    {
+      icon: "TrendingUp",
+      title: "SEO-оптимизация",
+      description: "Встроенные инструменты продвижения для роста позиций в поиске"
+    },
+    {
+      icon: "Plug",
+      title: "Интеграции",
+      description: "Готовые модули для оплаты, CRM, аналитики и доставки"
+    },
+    {
+      icon: "Database",
+      title: "Облачное хранилище",
+      description: "Неограниченное место для товаров, медиа и резервных копий"
+    },
+    {
+      icon: "Headphones",
+      title: "Техподдержка 24/7",
+      description: "Команда экспертов всегда готова помочь решить любой вопрос"
     }
   ];
 
@@ -325,10 +350,10 @@ const Index = () => {
       <section id="advantages" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Наши преимущества</h2>
-            <p className="text-gray-600 text-lg">Почему клиенты выбирают нас</p>
+            <h2 className="text-4xl font-bold mb-4">Преимущества CMS платформы</h2>
+            <p className="text-gray-600 text-lg">Готовое решение для вашего бизнеса</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {advantages.map((advantage, index) => (
               <div 
                 key={index} 
