@@ -13,8 +13,35 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const Index = () => {
+  const plugin = useRef(
+    Autoplay({ delay: 4000, stopOnInteraction: true })
+  );
+
+  const heroImages = [
+    {
+      url: "https://cdn.poehali.dev/projects/5829d144-7aac-40bc-98fe-3b53ef4ba154/files/e3fa3f21-4662-4bab-bf42-c20fd292548b.jpg",
+      title: "Современные технологии"
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/5829d144-7aac-40bc-98fe-3b53ef4ba154/files/2978f16f-0832-451b-b4f4-d54fc06652ea.jpg",
+      title: "E-commerce решения"
+    },
+    {
+      url: "https://cdn.poehali.dev/projects/5829d144-7aac-40bc-98fe-3b53ef4ba154/files/6d44212a-9fd4-4f4e-b273-19d3e22c4207.jpg",
+      title: "Маркетплейс платформы"
+    }
+  ];
   const services = [
     {
       icon: "Monitor",
@@ -219,21 +246,51 @@ const Index = () => {
 
       <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-              Создаем веб-решения<br />для вашего бизнеса
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Разрабатываем современные сайты, интернет-магазины и маркетплейсы с гарантией качества и технической поддержкой
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
-                Начать проект
-                <Icon name="ArrowRight" className="ml-2" size={20} />
-              </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8">
-                Смотреть работы
-              </Button>
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="animate-fade-in">
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+                Создаем веб-решения<br />для вашего бизнеса
+              </h1>
+              <p className="text-xl text-gray-600 mb-8">
+                Разрабатываем современные сайты, интернет-магазины и маркетплейсы с гарантией качества
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="text-lg px-8">
+                  Начать проект
+                  <Icon name="ArrowRight" className="ml-2" size={20} />
+                </Button>
+                <Button size="lg" variant="outline" className="text-lg px-8">
+                  Смотреть работы
+                </Button>
+              </div>
+            </div>
+            <div className="animate-scale-in">
+              <Carousel
+                plugins={[plugin.current]}
+                className="w-full"
+                onMouseEnter={() => plugin.current.stop()}
+                onMouseLeave={() => plugin.current.play()}
+              >
+                <CarouselContent>
+                  {heroImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                        <img
+                          src={image.url}
+                          alt={image.title}
+                          className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                        <div className="absolute bottom-6 left-6 right-6">
+                          <p className="text-white text-xl font-semibold">{image.title}</p>
+                        </div>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-4" />
+                <CarouselNext className="right-4" />
+              </Carousel>
             </div>
           </div>
         </div>
