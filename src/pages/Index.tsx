@@ -7,6 +7,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Index = () => {
   const services = [
@@ -165,13 +171,37 @@ const Index = () => {
               <Icon name="Code2" className="text-primary" size={28} />
               <span className="text-xl font-bold">WebDev Agency</span>
             </div>
-            <div className="hidden md:flex gap-8">
+            <div className="hidden md:flex gap-8 items-center">
               <a href="#services" className="text-gray-600 hover:text-primary transition-colors">Услуги</a>
               <a href="#advantages" className="text-gray-600 hover:text-primary transition-colors">Преимущества</a>
               <a href="#portfolio" className="text-gray-600 hover:text-primary transition-colors">Портфолио</a>
               <a href="#faq" className="text-gray-600 hover:text-primary transition-colors">FAQ</a>
             </div>
-            <Button>Оставить заявку</Button>
+            <div className="flex items-center gap-3">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="gap-2">
+                    <Icon name="Globe" size={18} />
+                    <span className="hidden sm:inline">RU</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem className="gap-2">
+                    <span className="text-lg">🇷🇺</span>
+                    Русский
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="gap-2">
+                    <span className="text-lg">🇬🇧</span>
+                    English
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="gap-2">
+                    <span className="text-lg">🇨🇳</span>
+                    中文
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <Button>Оставить заявку</Button>
+            </div>
           </div>
         </div>
       </nav>
