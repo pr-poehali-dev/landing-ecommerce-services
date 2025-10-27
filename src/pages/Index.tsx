@@ -180,21 +180,21 @@ const Index = () => {
             <div className="flex items-center gap-3">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="gap-2">
+                  <Button variant="ghost" size="sm" className="gap-2 text-gray-900 hover:text-primary font-semibold">
                     <Icon name="Globe" size={18} />
                     <span className="hidden sm:inline">RU</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
-                  <DropdownMenuItem className="gap-2">
+                  <DropdownMenuItem className="gap-2 text-gray-900 font-semibold">
                     <span className="text-lg">🇷🇺</span>
                     Русский
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="gap-2">
+                  <DropdownMenuItem className="gap-2 text-gray-900 font-semibold">
                     <span className="text-lg">🇬🇧</span>
                     English
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="gap-2">
+                  <DropdownMenuItem className="gap-2 text-gray-900 font-semibold">
                     <span className="text-lg">🇨🇳</span>
                     中文
                   </DropdownMenuItem>
