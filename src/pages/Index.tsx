@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Icon from "@/components/ui/icon";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Index = () => {
   const services = [
@@ -65,6 +71,33 @@ const Index = () => {
     }
   ];
 
+  const faqs = [
+    {
+      question: "Сколько времени занимает разработка сайта?",
+      answer: "Срок разработки зависит от сложности проекта. Простой корпоративный сайт — 2-3 недели, интернет-магазин — 1-2 месяца, маркетплейс — от 3 месяцев. Точные сроки обсуждаются индивидуально."
+    },
+    {
+      question: "Какова стоимость разработки?",
+      answer: "Стоимость формируется на основе технического задания. Корпоративный сайт — от 150 000 ₽, интернет-магазин — от 300 000 ₽, маркетплейс — от 800 000 ₽. Первая консультация и оценка проекта — бесплатно."
+    },
+    {
+      question: "Предоставляете ли вы техническую поддержку?",
+      answer: "Да, мы предлагаем полное сопровождение после запуска: обновления, исправление ошибок, консультации. Доступны различные тарифы поддержки — от базового до premium с круглосуточным доступом."
+    },
+    {
+      question: "Можно ли внести изменения в процессе разработки?",
+      answer: "Конечно! Мы работаем по agile-методологии с еженедельными демонстрациями результатов. Вы можете вносить правки на каждом этапе. Серьезные изменения в функционале могут повлиять на сроки и бюджет."
+    },
+    {
+      question: "Будет ли сайт адаптирован под мобильные устройства?",
+      answer: "Абсолютно все наши проекты разрабатываются с адаптивным дизайном (responsive design). Сайт будет корректно отображаться на смартфонах, планшетах и десктопах любых размеров."
+    },
+    {
+      question: "Помогаете ли с продвижением сайта?",
+      answer: "Да, мы предлагаем базовую SEO-оптимизацию при разработке: правильная структура, метатеги, скорость загрузки. Также сотрудничаем с digital-агентствами для комплексного продвижения сайта."
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
@@ -78,6 +111,7 @@ const Index = () => {
               <a href="#services" className="text-gray-600 hover:text-primary transition-colors">Услуги</a>
               <a href="#advantages" className="text-gray-600 hover:text-primary transition-colors">Преимущества</a>
               <a href="#portfolio" className="text-gray-600 hover:text-primary transition-colors">Портфолио</a>
+              <a href="#faq" className="text-gray-600 hover:text-primary transition-colors">FAQ</a>
             </div>
             <Button>Оставить заявку</Button>
           </div>
@@ -187,6 +221,34 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Частые вопросы</h2>
+            <p className="text-gray-600 text-lg">Ответы на популярные вопросы клиентов</p>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-white rounded-lg border border-gray-200 px-6 animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <AccordionTrigger className="text-left hover:no-underline py-5">
+                    <span className="text-lg font-semibold pr-4">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-600 leading-relaxed pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
