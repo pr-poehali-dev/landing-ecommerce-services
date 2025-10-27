@@ -71,6 +71,17 @@ const Index = () => {
     }
   ];
 
+  const partners = [
+    { name: "Сбербанк" },
+    { name: "Яндекс" },
+    { name: "МТС" },
+    { name: "ВТБ" },
+    { name: "Газпром" },
+    { name: "Ростелеком" },
+    { name: "Лукойл" },
+    { name: "Почта России" }
+  ];
+
   const faqs = [
     {
       question: "Сколько времени занимает разработка сайта?",
@@ -220,6 +231,31 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white border-y border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">Нам доверяют</h2>
+            <p className="text-gray-600">Крупнейшие компании России выбирают нас</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto items-center">
+            {partners.map((partner, index) => (
+              <div 
+                key={index}
+                className="flex items-center justify-center p-6 grayscale hover:grayscale-0 transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-3 mx-auto">
+                    <Icon name="Building2" className="text-gray-400" size={32} />
+                  </div>
+                  <span className="text-lg font-semibold text-gray-700">{partner.name}</span>
+                </div>
+              </div>
             ))}
           </div>
         </div>
