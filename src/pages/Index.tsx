@@ -172,10 +172,10 @@ const Index = () => {
               <span className="text-xl font-bold">WebDev Agency</span>
             </div>
             <div className="hidden md:flex gap-8 items-center">
-              <a href="#services" className="text-gray-600 hover:text-primary transition-colors">Услуги</a>
-              <a href="#advantages" className="text-gray-600 hover:text-primary transition-colors">Преимущества</a>
-              <a href="#portfolio" className="text-gray-600 hover:text-primary transition-colors">Портфолио</a>
-              <a href="#faq" className="text-gray-600 hover:text-primary transition-colors">FAQ</a>
+              <a href="#services" className="text-gray-900 hover:text-primary transition-colors font-semibold">Услуги</a>
+              <a href="#advantages" className="text-gray-900 hover:text-primary transition-colors font-semibold">Преимущества</a>
+              <a href="#portfolio" className="text-gray-900 hover:text-primary transition-colors font-semibold">Портфолио</a>
+              <a href="#faq" className="text-gray-900 hover:text-primary transition-colors font-semibold">FAQ</a>
             </div>
             <div className="flex items-center gap-3">
               <DropdownMenu>
