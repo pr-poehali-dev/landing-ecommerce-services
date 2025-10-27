@@ -178,6 +178,17 @@ const Index = () => {
               <a href="#faq" className="text-gray-900 hover:text-primary transition-colors font-semibold">FAQ</a>
             </div>
             <div className="flex items-center gap-3">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                className="gap-2 text-gray-900 hover:text-primary"
+                asChild
+              >
+                <a href="https://t.me/yourtelegram" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Send" size={18} />
+                  <span className="hidden sm:inline font-semibold">Telegram</span>
+                </a>
+              </Button>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="gap-2 text-gray-900 hover:text-primary font-semibold">
